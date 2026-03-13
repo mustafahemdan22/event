@@ -12,6 +12,7 @@ export interface Product {
   sizes: string[];
   colors: ProductColor[];
   inStock: boolean;
+  stock: number;
   featured?: boolean;
   newArrival?: boolean;
   rating: number;

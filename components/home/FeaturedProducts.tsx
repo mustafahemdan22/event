@@ -3,14 +3,27 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { getFeaturedProducts } from '@/data/products';
+import { useQuery } from 'convex/react';
+import { api } from '@/convex/_generated/api';
 import ProductCard from '@/components/product/ProductCard';
 import { useLocale } from '@/context/LocaleContext';
 import styles from '@/styles/FeaturedProducts.module.css';
 
 export default function FeaturedProducts() {
   const { t, locale } = useLocale();
-  const featuredProducts = getFeaturedProducts().slice(0, 8);
+  const featuredProducts = useQuery(api.products.getFeaturedProducts);
+
+  if (featuredProducts === undefined) {
+    return (
+      <section className={styles.section}>
+        <div className="container">
+          <div className={styles.loading}>Loading featured products...</div>
+        </div>
+      </section>
+    );
+  }
+
+  if (!featuredProducts || featuredProducts.length === 0) return null;
 
   return (
     <section className={styles.section}>

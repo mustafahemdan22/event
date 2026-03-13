@@ -3,7 +3,8 @@
 import React, { use } from 'react';
 import { motion } from 'framer-motion';
 import { getCategoryBySlug } from '@/data/categories';
-import { getProductsByCategory } from '@/data/products';
+import { useQuery } from 'convex/react';
+import { api } from '@/convex/_generated/api';
 import ProductCard from '@/components/product/ProductCard';
 import { useLocale, getLocalizedText } from '@/context/LocaleContext';
 import styles from '@/styles/Category.module.css';
@@ -16,8 +17,18 @@ interface CategoryPageProps {
 export default function CategoryPage({ params }: CategoryPageProps) {
   const resolvedParams = use(params);
   const category = getCategoryBySlug(resolvedParams.slug);
-  const products = category ? getProductsByCategory(resolvedParams.slug) : [];
+  const convexProducts = useQuery(api.products.getProductsByCategory, 
+    { category: resolvedParams.slug }
+  );
   const { t, locale } = useLocale();
+
+  if (convexProducts === undefined) {
+    return (
+      <div className={styles.loading}>
+        <div className={styles.spinner}></div>
+      </div>
+    );
+  }
 
   if (!category) {
     return (
@@ -29,6 +40,8 @@ export default function CategoryPage({ params }: CategoryPageProps) {
       </div>
     );
   }
+
+  const products = convexProducts || [];
 
   const name = getLocalizedText(category, 'name', locale);
   const description = getLocalizedText(category, 'description', locale);

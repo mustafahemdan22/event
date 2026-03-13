@@ -29,7 +29,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
 
   // Load locale from localStorage on mount
   useEffect(() => {
-    const savedLocale = localStorage.getItem('gravity-locale') as Locale | null;
+    const savedLocale = localStorage.getItem('event-locale') as Locale | null;
     if (savedLocale && ['en', 'ar'].includes(savedLocale)) {
       setLocaleState(savedLocale);
     }
@@ -42,7 +42,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
       const dir = locale === 'ar' ? 'rtl' : 'ltr';
       document.documentElement.setAttribute('dir', dir);
       document.documentElement.setAttribute('lang', locale);
-      localStorage.setItem('gravity-locale', locale);
+      localStorage.setItem('event-locale', locale);
     }
   }, [locale, isLoaded]);
 

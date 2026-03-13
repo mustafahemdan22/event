@@ -70,7 +70,7 @@ export default function CartPage() {
                     />
                   </div>
 
-                  <div className={styles.itemDetails}>
+0                  <div className={styles.itemDetails}>
                     <Link href={`/product/${item.product.id}`} className={styles.itemName}>
                       {name}
                     </Link>

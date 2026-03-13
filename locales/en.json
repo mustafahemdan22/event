@@ -29,8 +29,8 @@
     },
     "home": {
         "hero": {
-            "title": "Discover Your Style",
-            "subtitle": "Explore the latest trends in fashion for Men, Women & Kids",
+            "title": "Discover Your Own Confidence",
+            "subtitle":  "Explore the latest trends in fashion for Men, Women & Kids. Discover stylish, comfortable, and high-quality outfits designed to fit every lifestyle and season.",
             "cta": "Shop Now",
             "secondary": "View Collections"
         },
@@ -162,7 +162,7 @@
         "title": "About Us",
         "story": {
             "title": "Our Story",
-            "content": "Founded with a passion for fashion, Gravity brings you the latest trends and timeless classics. We believe that great style should be accessible to everyone."
+            "content": "EVENT is shot in alex in egypt NO LIMITS. Founded with a passion for fashion, Event brings you the latest trends and timeless classics. We believe that great style should be accessible to everyone."
         },
         "mission": {
             "title": "Our Mission",
@@ -183,8 +183,8 @@
         }
     },
     "contact": {
-        "title": "Contact Us",
-        "subtitle": "We'd love to hear from you",
+       "title": "Contact Us",
+"subtitle": "Whether you want to visit our stores, shop online, ask questions, or get support, we're here to help you anytime, anywhere.",
         "form": {
             "name": "Your Name",
             "email": "Your Email",
@@ -194,21 +194,22 @@
             "success": "Message sent successfully!"
         },
         "info": {
-            "address": "123 Fashion Street, Style City, SC 12345",
-            "email": "contact@gravity.com",
-            "phone": "+1 (555) 123-4567",
-            "hours": "Mon - Fri: 9:00 AM - 6:00 PM"
+            "address": "Alexandria & Mansoura",
+            "email": "contact@event.com",
+            "phone": "01050537708",
+            "taxNo": "280 - 112 - 728",
+            "hours": "Daily: 10 AM - 11 PM (Thu-Fri: 10 AM - 12 AM)"
         }
     },
     "blog": {
-        "title": "Blog",
-        "subtitle": "Fashion tips, trends & styling guides",
+      "title": "Blog",
+"subtitle": "Expert fashion tips, latest trends, and styling guides to elevate your wardrobe, inspire your personal style, and help you look your best every day.",
         "readMore": "Read More",
         "by": "By",
         "on": "on"
     },
     "footer": {
-        "about": "About Gravity",
+        "about": "About Event",
         "aboutText": "Your one-stop destination for the latest fashion trends. Quality apparel for Men, Women & Kids.",
         "quickLinks": "Quick Links",
         "customerService": "Customer Service",

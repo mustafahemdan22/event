@@ -9,6 +9,7 @@ import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
 import { useLocale, getLocalizedText } from '@/context/LocaleContext';
 import { formatPrice, getDiscountPercentage } from '@/lib/utils';
+import { getCloudinaryUrl } from '@/lib/cloudinary';
 import styles from '@/styles/ProductCard.module.css';
 
 interface ProductCardProps {
@@ -29,6 +30,9 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
   const discountPercent = hasDiscount
     ? getDiscountPercentage(product.originalPrice!, product.price)
     : 0;
+
+  // Optimized image URL
+  const imageUrl = getCloudinaryUrl(product.images[0], { width: 500, quality: 'auto' });
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -63,7 +67,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
           >
             {!imageError ? (
               <Image
-                src={product.images[0]}
+                src={imageUrl} // Using optimized image URL
                 alt={name}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -90,6 +94,12 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
               <span className={styles.newBadge}>
                 {locale === 'en' ? 'New' : 'جديد'}
               </span>
+            )}
+            {product.stock <= 5 && product.stock > 0 && (
+              <span className={styles.lowStockBadge}>{locale === 'ar' ? 'كمية محدودة' : 'Low Stock'}</span>
+            )}
+            {product.stock === 0 && (
+              <span className={styles.outOfStockBadge}>{locale === 'ar' ? 'نفذت الكمية' : 'Out of Stock'}</span>
             )}
           </div>
 

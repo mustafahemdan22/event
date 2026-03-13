@@ -3,14 +3,27 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { getNewArrivals } from '@/data/products';
+import { useQuery } from 'convex/react';
+import { api } from '@/convex/_generated/api';
 import ProductCard from '@/components/product/ProductCard';
 import { useLocale } from '@/context/LocaleContext';
-import styles from '@/styles/NewArrivals.module.css';
+import styles from '@/styles/NewArrivals.module.css'; // Keeping original styles import as the instruction's snippet had a different one but didn't explicitly state to change it.
 
 export default function NewArrivals() {
   const { t } = useLocale();
-  const newArrivals = getNewArrivals().slice(0, 8);
+  const newArrivals = useQuery(api.products.getNewArrivals);
+
+  if (newArrivals === undefined) {
+    return (
+      <section className={styles.section}>
+        <div className="container">
+          <div className={styles.loading}>Loading new arrivals...</div> {/* Added text for clarity */}
+        </div>
+      </section>
+    );
+  }
+
+  if (!newArrivals || newArrivals.length === 0) return null;
 
   return (
     <section className={styles.section}>

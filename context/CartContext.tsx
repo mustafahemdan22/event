@@ -132,7 +132,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   // Load cart from localStorage on mount
   useEffect(() => {
-    const savedCart = localStorage.getItem('gravity-cart');
+    const savedCart = localStorage.getItem('event-cart');
     if (savedCart) {
       try {
         const parsedCart = JSON.parse(savedCart);
@@ -145,7 +145,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   // Save cart to localStorage on change
   useEffect(() => {
-    localStorage.setItem('gravity-cart', JSON.stringify(state.items));
+    localStorage.setItem('event-cart', JSON.stringify(state.items));
   }, [state.items]);
 
   const addItem = (product: Product, size: string, color: ProductColor, quantity = 1) => {

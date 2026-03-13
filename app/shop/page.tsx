@@ -2,7 +2,8 @@
 
 import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { products } from '@/data/products';
+import { useQuery } from 'convex/react';
+import { api } from '@/convex/_generated/api';
 import { categories } from '@/data/categories';
 import ProductCard from '@/components/product/ProductCard';
 import { useLocale, getLocalizedText } from '@/context/LocaleContext';
@@ -12,6 +13,7 @@ type SortOption = 'newest' | 'price-asc' | 'price-desc' | 'name';
 
 export default function ShopPage() {
   const { t, locale } = useLocale();
+  const convexProducts = useQuery(api.products.getProducts);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [sortBy, setSortBy] = useState<SortOption>('newest');
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 500]);
@@ -20,7 +22,8 @@ export default function ShopPage() {
   const productsPerPage = 12;
 
   const filteredProducts = useMemo(() => {
-    let result = [...products];
+    if (!convexProducts) return [];
+    let result = [...convexProducts];
 
     // Filter by category
     if (selectedCategory !== 'all') {
@@ -50,7 +53,7 @@ export default function ShopPage() {
     }
 
     return result;
-  }, [selectedCategory, sortBy, priceRange]);
+  }, [convexProducts, selectedCategory, sortBy, priceRange]);
 
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
   const paginatedProducts = filteredProducts.slice(

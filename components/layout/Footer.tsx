@@ -72,7 +72,7 @@ export default function Footer() {
               className={styles.footerColumn}
             >
               <Link href="/" className={styles.footerLogo}>
-                GRAVITY
+                Event
               </Link>
               <p className={styles.footerAbout}>
                 {t.footer.aboutText}
@@ -181,19 +181,21 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className={styles.bottomBar}>
-        <div className="container">
-          <div className={styles.bottomContent}>
-            <p className={styles.copyright}>
-              © {currentYear} GRAVITY. {t.footer.rights}.
-            </p>
-            <div className={styles.paymentMethods}>
-              <span className={styles.paymentIcon}>💳</span>
-              <span className={styles.paymentIcon}>🏦</span>
-              <span className={styles.paymentIcon}>📱</span>
-            </div>
-          </div>
-        </div>
+  <div className="container">
+    <div className={styles.bottomContent}>
+      <div className={styles.copyright}>
+        <p>© {currentYear} Event. {t.footer.rights}.</p>
+        <p style={{ fontSize: '0.75rem', opacity: 0.9 , marginTop: '4px' }}>
+          {locale === 'en' ? 'Tax Registration No' : 'رقم التسجيل الضريبي'}: {(t.contact.info as any).taxNo}
+        </p>
+        <p style={{ fontSize: '0.75rem', opacity: 0.9, marginTop: '4px' }}>
+          {locale === 'en' ? 'Website by mustafa' : 'تم التطوير بواسطة مصطفي حمدان'}
+        </p>
       </div>
+     
+    </div>
+  </div>
+</div>
     </footer>
   );
 }

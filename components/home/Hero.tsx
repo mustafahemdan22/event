@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLocale } from '@/context/LocaleContext';
@@ -8,8 +7,11 @@ import styles from '@/styles/Hero.module.css';
 
 export default function Hero() {
   const { t, isRTL } = useLocale();
+          const text = t.home.hero.title.split("");
+
 
   return (
+    
     <section className={styles.hero}>
       <div className={styles.background}>
         <div className={styles.gradientOverlay} />
@@ -22,25 +24,37 @@ export default function Hero() {
             className={styles.textContent}
             initial={{ opacity: 0, x: isRTL ? 50 : -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.9 }}
           >
-            <motion.span
-              className={styles.badge}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-            >
-              ✨ New Collection 2026
-            </motion.span>
 
-            <motion.h1
-              className={styles.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-            >
-              {t.home.hero.title}
-            </motion.h1>
+<motion.h1
+  className={styles.title}
+  animate="visible"
+  variants={{
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.1,
+        repeat: Infinity,
+        repeatType: "reverse",
+        repeatDelay: 0.9,
+      },
+    },
+  }}
+>
+  {text.map((char, index) => (
+    <motion.span
+      key={index}
+      variants={{
+        hidden: { opacity: 0, y: 80 },
+        visible: { opacity: 1, y: 0 },
+      }}
+      transition={{ duration: 0.4 }}
+    >
+      {char}
+    </motion.span>
+  ))}
+</motion.h1>
 
             <motion.p
               className={styles.subtitle}
@@ -92,70 +106,10 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          <motion.div
-            className={styles.imageContent}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-          >
-            <div className={styles.imageWrapper}>
-              <div className={styles.imageCard}>
-                <img
-                  src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800"
-                  alt="Fashion Model"
-                  className={styles.heroImage}
-                />
-              </div>
-              
-              {/* Floating Cards */}
-              <motion.div
-                className={`${styles.floatingCard} ${styles.floatingCard1}`}
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                <span className={styles.floatingIcon}>👗</span>
-                <span>New Arrivals</span>
-              </motion.div>
-
-              <motion.div
-                className={`${styles.floatingCard} ${styles.floatingCard2}`}
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity }}
-              >
-                <span className={styles.floatingIcon}>🔥</span>
-                <span>Trending</span>
-              </motion.div>
-
-              <motion.div
-                className={`${styles.floatingCard} ${styles.floatingCard3}`}
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 2.5, repeat: Infinity }}
-              >
-                <span className={styles.floatingIcon}>⭐</span>
-                <span>Best Sellers</span>
-              </motion.div>
-            </div>
-          </motion.div>
+        
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        className={styles.scrollIndicator}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 5v14"/>
-            <path d="m19 12-7 7-7-7"/>
-          </svg>
-        </motion.div>
-      </motion.div>
     </section>
   );
 }

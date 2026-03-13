@@ -2,18 +2,34 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
 import { useTheme } from "@/context/ThemeContext";
 import { useLocale } from "@/context/LocaleContext";
 import styles from "@/styles/Header.module.css";
+import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isMobileCategoriesOpen, setIsMobileCategoriesOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest > 50) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  });
+
+  const scrollToTop = () => {
+    window.scrollTo({  top: 0, behavior: "smooth" });
+  };
 
   const { totalItems } = useCart();
   const { items: wishlistItems } = useWishlist();
@@ -37,22 +53,47 @@ export default function Header() {
   ];
 
   return (
-    <header className={styles.header}>
-      {/* Top Bar */}
-      <div className={styles.topBar}>
-        <p className={styles.announcement}>
-          {locale === "en"
-            ? "🎉 Free Shipping on Orders Over $100!"
-            : "🎉 شحن مجاني للطلبات فوق 100 دولار!"}
-        </p>
-      </div>
+    <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ""}`}>
+      {/* Top Bar - Disappears on scroll */}
+      <AnimatePresence>
+        {!isScrolled && (
+          <motion.div 
+            className={styles.topBar}
+            initial={{ height: "auto", opacity: 1 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className={`container ${styles.topBarContent}`}>
+              <div className={styles.discountBanner}>
+                {locale === "en"
+                  ? "🎉 Special Offer: 20% OFF on your first order!"
+                  : "🎉 عرض خاص: خصم 20% على طلبك الأول!"}
+              </div>
+             <div className={styles.topSocials}>
+  <a href="#" className={styles.socialLink}>
+    <FaFacebookF />
+  </a>
+
+  <a href="#" className={styles.socialLink}>
+    <FaInstagram />
+  </a>
+
+  <a href="#" className={styles.socialLink}>
+    <FaTwitter />
+  </a>
+</div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <nav className={styles.nav}>
         <div className="container">
           <div className={styles.navContent}>
             {/* Logo */}
             <Link href="/" className={styles.logo}>
-              GRAVITY
+              Event
             </Link>
 
             {/* Desktop Navigation */}
@@ -114,12 +155,7 @@ export default function Header() {
 
               {/* Desktop Only Icons */}
               <div className={styles.desktopOnly}>
-                <button
-                  className={styles.iconButton}
-                  onClick={() => setIsSearchOpen(!isSearchOpen)}
-                >
-                  🔍
-                </button>
+                
 
                 <Link href="/wishlist" className={styles.iconButton}>
                   ❤️
@@ -162,7 +198,6 @@ export default function Header() {
             >
               {/* Mobile Actions */}
               <div className={styles.mobileActions}>
-                <button className={styles.iconButton}>🔍</button>
                 <Link href="/wishlist" className={styles.iconButton}>
                   ❤️
                 </Link>
@@ -228,6 +263,38 @@ export default function Header() {
           )}
         </AnimatePresence>
       </nav>
+
+      {/* Floating Controls */}
+      <AnimatePresence>
+        {isScrolled && (
+          <>
+            {/* Scroll to Top Arrow - Bottom Left */}
+            <motion.button
+              className={styles.scrollToTop}
+              onClick={scrollToTop}
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -100, opacity: 0 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              ↑
+            </motion.button>
+
+            {/* Floating Social Icons - Bottom Right */}
+            <motion.div
+              className={styles.floatingSocials}
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: 100, opacity: 0 }}
+            >
+              <a href="#" className={styles.floatingSocialLink}><FaFacebookF/></a>
+              <a href="#" className={styles.floatingSocialLink}><FaInstagram/> </a>
+              <a href="#" className={styles.floatingSocialLink}><FaTwitter/> </a>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

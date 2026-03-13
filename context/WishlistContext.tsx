@@ -19,8 +19,7 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   // Load wishlist from localStorage on mount
-  useEffect(() => {
-    const savedWishlist = localStorage.getItem('gravity-wishlist');
+  useEffect(() => {    const savedWishlist = localStorage.getItem('event-wishlist');
     if (savedWishlist) {
       try {
         const parsedWishlist = JSON.parse(savedWishlist);
@@ -35,7 +34,7 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
   // Save wishlist to localStorage on change
   useEffect(() => {
     if (isLoaded) {
-      localStorage.setItem('gravity-wishlist', JSON.stringify(items));
+      localStorage.setItem('event-wishlist', JSON.stringify(items));
     }
   }, [items, isLoaded]);
 

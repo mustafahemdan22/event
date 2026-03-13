@@ -26,7 +26,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   // Load theme from localStorage on mount
   useEffect(() => {
-    const savedTheme = localStorage.getItem('gravity-theme') as Theme | null;
+    const savedTheme = localStorage.getItem('event-theme') as Theme | null;
     if (savedTheme && ['light', 'dark', 'system'].includes(savedTheme)) {
       setThemeState(savedTheme);
     }
@@ -62,7 +62,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     if (isLoaded) {
       document.documentElement.classList.remove('light', 'dark');
       document.documentElement.classList.add(resolvedTheme);
-      localStorage.setItem('gravity-theme', theme);
+      localStorage.setItem('event-theme', theme);
     }
   }, [resolvedTheme, theme, isLoaded]);
 

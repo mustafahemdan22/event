@@ -1,14 +1,16 @@
 'use client';
 
-import React, { useState, use } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { getProductById, getRelatedProducts } from '@/data/products';
+import { useQuery } from 'convex/react';
+import { api } from '@/convex/_generated/api';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
 import { useLocale, getLocalizedText } from '@/context/LocaleContext';
 import { formatPrice, getDiscountPercentage } from '@/lib/utils';
+import { getCloudinaryUrl } from '@/lib/cloudinary';
 import ProductCard from '@/components/product/ProductCard';
 import styles from '@/styles/ProductDetail.module.css';
 
@@ -17,9 +19,18 @@ interface ProductPageProps {
 }
 
 export default function ProductPage({ params }: ProductPageProps) {
-  const resolvedParams = use(params);
-  const product = getProductById(resolvedParams.id);
-  const relatedProducts = product ? getRelatedProducts(product.id, 4) : [];
+  const resolvedParams = React.use(params);
+  const product = useQuery(api.products.getProductByManualId, { id: resolvedParams.id });
+  const categoryProducts = useQuery(api.products.getProductsByCategory, 
+    { category: product?.category || '' }
+  );
+  
+  const relatedProducts = React.useMemo(() => {
+    if (!product || !categoryProducts) return [];
+    return categoryProducts
+      .filter((p) => p.id !== product.id)
+      .slice(0, 4);
+  }, [product, categoryProducts]);
   
   const { addItem } = useCart();
   const { isInWishlist, toggleItem } = useWishlist();
@@ -27,11 +38,26 @@ export default function ProductPage({ params }: ProductPageProps) {
 
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedSize, setSelectedSize] = useState('');
-  const [selectedColor, setSelectedColor] = useState(product?.colors[0] || null);
+  const [selectedColor, setSelectedColor] = useState<any>(null);
   const [quantity, setQuantity] = useState(1);
   const [addedToCart, setAddedToCart] = useState(false);
 
-  if (!product) {
+  // Set default color when product loads
+  React.useEffect(() => {
+    if (product && !selectedColor) {
+      setSelectedColor(product.colors[0]);
+    }
+  }, [product, selectedColor]);
+
+  if (product === undefined) {
+    return (
+      <div className={styles.loading}>
+        <div className={styles.spinner}></div>
+      </div>
+    );
+  }
+
+  if (product === null) {
     return (
       <div className={styles.notFound}>
         <h1>{locale === 'en' ? 'Product not found' : 'المنتج غير موجود'}</h1>
@@ -82,7 +108,7 @@ export default function ProductPage({ params }: ProductPageProps) {
               transition={{ duration: 0.3 }}
             >
               <Image
-                src={product.images[selectedImage]}
+                src={getCloudinaryUrl(product.images[selectedImage], { width: 1000, quality: 'auto' })}
                 alt={name}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -103,7 +129,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                     onClick={() => setSelectedImage(idx)}
                   >
                     <Image
-                      src={img}
+                      src={getCloudinaryUrl(img, { width: 200, height: 200, quality: 'auto' })}
                       alt={`${name} ${idx + 1}`}
                       fill
                       sizes="100px"
@@ -248,8 +274,11 @@ export default function ProductPage({ params }: ProductPageProps) {
 
               {/* Stock Status */}
               <div className={styles.stockStatus}>
-                {product.inStock ? (
-                  <span className={styles.inStock}>✓ {t.product.inStock}</span>
+                {product.inStock && product.stock > 0 ? (
+                  <span className={styles.inStock}>
+                    ✓ {t.product.inStock} 
+                    {product.stock < 10 && ` (${locale === 'ar' ? 'بقي فقط' : 'Only'} ${product.stock} ${locale === 'ar' ? 'متوفر' : 'left'})`}
+                  </span>
                 ) : (
                   <span className={styles.outOfStock}>✗ {t.product.outOfStock}</span>
                 )}
