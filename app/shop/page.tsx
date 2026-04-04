@@ -1,7 +1,5 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { useQuery } from 'convex/react';
@@ -98,7 +96,7 @@ export default function ShopPage() {
             onClick={() => setIsFilterOpen(!isFilterOpen)}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
             </svg>
             {t.shop.filters}
           </button>
@@ -196,7 +194,7 @@ export default function ShopPage() {
                 >
                   {t.common.previous}
                 </button>
-                
+
                 <div className={styles.pageNumbers}>
                   {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                     <button

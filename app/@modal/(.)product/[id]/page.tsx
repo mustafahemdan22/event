@@ -1,7 +1,5 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -22,7 +20,7 @@ interface InterceptedProductPageProps {
 export default function InterceptedProductPage({ params }: InterceptedProductPageProps) {
   const resolvedParams = React.use(params);
   const product = useQuery(api.functions.products.getProductByManualId, { id: resolvedParams.id });
-  
+
   const { addItem } = useCart();
   const { isInWishlist, toggleItem } = useWishlist();
   const { t, locale } = useLocale();
@@ -94,7 +92,7 @@ export default function InterceptedProductPage({ params }: InterceptedProductPag
               <span className={styles.discountBadge}>-{discountPercent}%</span>
             )}
           </div>
-          
+
           {product.images.length > 1 && (
             <div className={styles.thumbnails}>
               {product.images.map((img: string, idx: number) => (
@@ -207,7 +205,7 @@ export default function InterceptedProductPage({ params }: InterceptedProductPag
                 </motion.div>
               )}
             </AnimatePresence>
-            
+
             <motion.button
               className={`${styles.wishlistButton} ${isWishlisted ? styles.wishlisted : ''}`}
               onClick={() => toggleItem(product)}
@@ -216,11 +214,11 @@ export default function InterceptedProductPage({ params }: InterceptedProductPag
               style={{ width: '3rem', height: '3rem' }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill={isWishlisted ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
               </svg>
             </motion.button>
           </div>
-          
+
         </div>
       </div>
     </Modal>
