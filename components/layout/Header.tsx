@@ -44,12 +44,12 @@ export default function Header() {
   ];
 
   const productCategories = [
-    { href: "/category/men", label: t.categories.men },
-    { href: "/category/women", label: t.categories.women },
-    { href: "/category/kids", label: t.categories.kids },
-    { href: "/category/Accessories", label: t.categories.accessories },
-    { href: "/category/Lingerie", label: t.categories.lingerie },
-    { href: "/category/shoes", label: t.categories.shoes },
+    { href: "/category/men", label: t.categories.men.name },
+    { href: "/category/women", label: t.categories.women.name },
+    { href: "/category/kids", label: t.categories.kids.name },
+    { href: "/category/Accessories", label: t.categories.accessories.name },
+    { href: "/category/Lingerie", label: t.categories.lingerie.name },
+    { href: "/category/shoes", label: t.categories.shoes.name },
   ];
 
   return (

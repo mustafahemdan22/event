@@ -1,5 +1,5 @@
 {
- "nav": {
+  "nav": {
     "home": "Home",
     "shop": "Shop",
     "products": "Products",
@@ -13,225 +13,685 @@
     "register": "Register",
     "logout": "Logout",
     "profile": "Profile"
-}
-
-
-,
-    "categories": {
-        "men": "Men",
-        "women": "Women",
-        "kids": "Kids",
-        "shoes": "Shoes",
-        "lingerie": "Lingerie",
-        "jeans": "Jeans",
-        "accessories": "Accessories",
-        "all": "All Categories"
+  },
+  "categories": {
+    "men": {
+      "name": "Men",
+      "description": "Discover the latest men's fashion trends"
     },
-    "home": {
-        "hero": {
-            "title": "Discover Your Own Confidence",
-            "subtitle":  "Explore the latest trends in fashion for Men, Women & Kids. Discover stylish, comfortable, and high-quality outfits designed to fit every lifestyle and season.",
-            "cta": "Shop Now",
-            "secondary": "View Collections"
-        },
-        "categories": {
-            "title": "Shop by Category",
-            "subtitle": "Find everything you need"
-        },
-        "newArrivals": {
-            "title": "New Arrivals",
-            "subtitle": "Fresh styles just dropped"
-        },
-        "featured": {
-            "title": "Featured Products",
-            "subtitle": "Handpicked just for you"
-        },
-        "newsletter": {
-            "title": "Stay Updated",
-            "subtitle": "Subscribe to our newsletter for exclusive deals",
-            "placeholder": "Enter your email",
-            "button": "Subscribe",
-            "success": "Thank you for subscribing!"
-        },
-        "promotions": {
-            "title": "Special Offers",
-            "subtitle": "Don't miss out on these deals"
-        }
+    "women": {
+      "name": "Women",
+      "description": "Elegant styles for the modern woman"
     },
-    "shop": {
-        "title": "Shop",
-        "allProducts": "All Products",
-        "filters": "Filters",
-        "sort": "Sort By",
-        "sortOptions": {
-            "newest": "Newest",
-            "priceAsc": "Price: Low to High",
-            "priceDesc": "Price: High to Low",
-            "name": "Name A-Z"
-        },
-        "price": "Price",
-        "size": "Size",
-        "color": "Color",
-        "category": "Category",
-        "clearFilters": "Clear Filters",
-        "noProducts": "No products found",
-        "showing": "Showing",
-        "of": "of",
-        "products": "products"
+    "kids": {
+      "name": "Kids",
+      "description": "Fun and comfortable styles for children"
     },
-    "product": {
-        "addToCart": "Add to Cart",
-        "addToWishlist": "Add to Wishlist",
-        "removeFromWishlist": "Remove from Wishlist",
-        "viewDetails": "View Details",
-        "inStock": "In Stock",
-        "outOfStock": "Out of Stock",
-        "size": "Size",
-        "color": "Color",
-        "quantity": "Quantity",
-        "description": "Description",
-        "reviews": "Reviews",
-        "relatedProducts": "Related Products",
-        "selectSize": "Select Size",
-        "selectColor": "Select Color"
+    "shoes": {
+      "name": "Shoes",
+      "description": "Step out in style with our footwear collection"
     },
-    "cart": {
-        "title": "Shopping Cart",
-        "empty": "Your cart is empty",
-        "continueShopping": "Continue Shopping",
-        "subtotal": "Subtotal",
-        "shipping": "Shipping",
-        "total": "Total",
-        "checkout": "Proceed to Checkout",
-        "remove": "Remove",
-        "free": "Free"
+    "lingerie": {
+      "name": "Lingerie",
+      "description": "Comfortable and elegant intimate wear"
     },
-    "wishlist": {
-        "title": "My Wishlist",
-        "empty": "Your wishlist is empty",
-        "addedToCart": "Added to cart"
+    "jeans": {
+      "name": "Jeans",
+      "description": "Premium denim for every occasion"
     },
-    "checkout": {
-        "title": "Checkout",
-        "shipping": "Shipping Information",
-        "payment": "Payment Method",
-        "orderSummary": "Order Summary",
-        "placeOrder": "Place Order",
-        "firstName": "First Name",
-        "lastName": "Last Name",
-        "email": "Email",
-        "phone": "Phone",
-        "address": "Address",
-        "city": "City",
-        "country": "Country",
-        "zip": "ZIP Code"
+    "accessories": {
+      "name": "Accessories",
+      "description": "Complete your look with our accessories"
     },
-    "auth": {
-        "login": {
-            "title": "Welcome Back",
-            "subtitle": "Sign in to your account",
-            "email": "Email",
-            "password": "Password",
-            "remember": "Remember me",
-            "forgot": "Forgot password?",
-            "button": "Sign In",
-            "noAccount": "Don't have an account?",
-            "register": "Create one"
-        },
-        "register": {
-            "title": "Create Account",
-            "subtitle": "Join us today",
-            "firstName": "First Name",
-            "lastName": "Last Name",
-            "email": "Email",
-            "password": "Password",
-            "confirmPassword": "Confirm Password",
-            "terms": "I agree to the Terms & Conditions",
-            "button": "Create Account",
-            "hasAccount": "Already have an account?",
-            "login": "Sign in"
-        },
-        "errors": {
-            "required": "This field is required",
-            "email": "Please enter a valid email",
-            "password": "Password must be at least 8 characters",
-            "passwordMatch": "Passwords do not match"
-        }
-    },
-    "about": {
-        "title": "About Us",
-        "story": {
-            "title": "Our Story",
-            "content": "EVENT is shot in alex in egypt NO LIMITS. Founded with a passion for fashion, Event brings you the latest trends and timeless classics. We believe that great style should be accessible to everyone."
-        },
-        "mission": {
-            "title": "Our Mission",
-            "content": "To provide high-quality, fashionable apparel that empowers individuals to express their unique style."
-        },
-        "vision": {
-            "title": "Our Vision",
-            "content": "To become the go-to destination for fashion-forward individuals seeking quality and style."
-        },
-        "values": {
-            "title": "Our Values",
-            "quality": "Quality",
-            "qualityDesc": "We never compromise on quality",
-            "style": "Style",
-            "styleDesc": "Curated collections for every taste",
-            "service": "Service",
-            "serviceDesc": "Customer satisfaction is our priority"
-        }
-    },
-    "contact": {
-       "title": "Contact Us",
-"subtitle": "Whether you want to visit our stores, shop online, ask questions, or get support, we're here to help you anytime, anywhere.",
-        "form": {
-            "name": "Your Name",
-            "email": "Your Email",
-            "subject": "Subject",
-            "message": "Message",
-            "send": "Send Message",
-            "success": "Message sent successfully!"
-        },
-        "info": {
-            "address": "Alexandria & Mansoura",
-            "email": "contact@event.com",
-            "phone": "01050537708",
-            "taxNo": "280 - 112 - 728",
-            "hours": "Daily: 10 AM - 11 PM (Thu-Fri: 10 AM - 12 AM)"
-        }
-    },
-    "blog": {
-      "title": "Blog",
-"subtitle": "Expert fashion tips, latest trends, and styling guides to elevate your wardrobe, inspire your personal style, and help you look your best every day.",
-        "readMore": "Read More",
-        "by": "By",
-        "on": "on"
-    },
-    "footer": {
-        "about": "About Event",
-        "aboutText": "Your one-stop destination for the latest fashion trends. Quality apparel for Men, Women & Kids.",
-        "quickLinks": "Quick Links",
-        "customerService": "Customer Service",
-        "shippingInfo": "Shipping Info",
-        "returns": "Returns & Exchanges",
-        "sizeGuide": "Size Guide",
-        "faq": "FAQ",
-        "followUs": "Follow Us",
-        "newsletter": "Newsletter",
-        "newsletterText": "Subscribe for exclusive offers",
-        "rights": "All rights reserved"
-    },
-    "common": {
-        "loading": "Loading...",
-        "error": "Something went wrong",
-        "back": "Back",
-        "next": "Next",
-        "previous": "Previous",
-        "close": "Close",
-        "save": "Save",
-        "cancel": "Cancel",
-        "search": "Search",
-        "searchPlaceholder": "Search products..."
+    "all": {
+      "name": "All Categories",
+      "description": "Explore all our product categories"
     }
+  },
+  "home": {
+    "hero": {
+      "title": "Discover Your Own Confidence",
+      "subtitle": "Explore the latest trends in fashion for Men, Women & Kids. Discover stylish, comfortable, and high-quality outfits designed to fit every lifestyle and season.",
+      "cta": "Shop Now",
+      "secondary": "View Collections"
+    },
+    "categories": {
+      "title": "Shop by Category",
+      "subtitle": "Find everything you need"
+    },
+    "newArrivals": {
+      "title": "New Arrivals",
+      "subtitle": "Fresh styles just dropped"
+    },
+    "featured": {
+      "title": "Featured Products",
+      "subtitle": "Handpicked just for you"
+    },
+    "newsletter": {
+      "title": "Stay Updated",
+      "subtitle": "Subscribe to our newsletter for exclusive deals",
+      "placeholder": "Enter your email",
+      "button": "Subscribe",
+      "success": "Thank you for subscribing!"
+    },
+    "promotions": {
+      "title": "Special Offers",
+      "subtitle": "Don't miss out on these deals"
+    }
+  },
+  "shop": {
+    "title": "Shop",
+    "allProducts": "All Products",
+    "filters": "Filters",
+    "sort": "Sort By",
+    "sortOptions": {
+      "newest": "Newest",
+      "priceAsc": "Price: Low to High",
+      "priceDesc": "Price: High to Low",
+      "name": "Name A-Z"
+    },
+    "price": "Price",
+    "size": "Size",
+    "color": "Color",
+    "category": "Category",
+    "clearFilters": "Clear Filters",
+    "noProducts": "No products found",
+    "showing": "Showing",
+    "of": "of",
+    "products": "products"
+  },
+  "product": {
+    "addToCart": "Add to Cart",
+    "addToWishlist": "Add to Wishlist",
+    "removeFromWishlist": "Remove from Wishlist",
+    "viewDetails": "View Details",
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock",
+    "new": "New",
+    "lowStock": "Low Stock",
+    "limitedQty": "Limited Quantity",
+    "size": "Size",
+    "color": "Color",
+    "quantity": "Quantity",
+    "description": "Description",
+    "reviews": "Reviews",
+    "relatedProducts": "Related Products",
+    "selectSize": "Select Size",
+    "selectColor": "Select Color"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty",
+    "continueShopping": "Continue Shopping",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "total": "Total",
+    "checkout": "Proceed to Checkout",
+    "remove": "Remove",
+    "free": "Free"
+  },
+  "wishlist": {
+    "title": "My Wishlist",
+    "empty": "Your wishlist is empty",
+    "addedToCart": "Added to cart"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "shipping": "Shipping Information",
+    "payment": "Payment Method",
+    "orderSummary": "Order Summary",
+    "placeOrder": "Place Order",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "city": "City",
+    "country": "Country",
+    "zip": "ZIP Code"
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Sign in to your account",
+      "email": "Email",
+      "password": "Password",
+      "remember": "Remember me",
+      "forgot": "Forgot password?",
+      "button": "Sign In",
+      "noAccount": "Don't have an account?",
+      "register": "Create one"
+    },
+    "register": {
+      "title": "Create Account",
+      "subtitle": "Join us today",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "terms": "I agree to the Terms & Conditions",
+      "button": "Create Account",
+      "hasAccount": "Already have an account?",
+      "login": "Sign in"
+    },
+    "errors": {
+      "required": "This field is required",
+      "email": "Please enter a valid email",
+      "password": "Password must be at least 8 characters",
+      "passwordMatch": "Passwords do not match"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "story": {
+      "title": "Our Story",
+      "content": "EVENT is shot in alex in egypt NO LIMITS. Founded with a passion for fashion, Event brings you the latest trends and timeless classics. We believe that great style should be accessible to everyone."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "content": "To provide high-quality, fashionable apparel that empowers individuals to express their unique style."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "content": "To become the go-to destination for fashion-forward individuals seeking quality and style."
+    },
+    "values": {
+      "title": "Our Values",
+      "quality": "Quality",
+      "qualityDesc": "We never compromise on quality",
+      "style": "Style",
+      "styleDesc": "Curated collections for every taste",
+      "service": "Service",
+      "serviceDesc": "Customer satisfaction is our priority"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Whether you want to visit our stores, shop online, ask questions, or get support, we're here to help you anytime, anywhere.",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message",
+      "success": "Message sent successfully!"
+    },
+    "info": {
+      "address": "Alexandria & Mansoura",
+      "email": "contact@event.com",
+      "phone": "01050537708",
+      "taxNo": "280 - 112 - 728",
+      "hours": "Daily: 10 AM - 11 PM (Thu-Fri: 10 AM - 12 AM)"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Expert fashion tips, latest trends, and styling guides to elevate your wardrobe, inspire your personal style, and help you look your best every day.",
+    "readMore": "Read More",
+    "by": "By",
+    "on": "on"
+  },
+  "footer": {
+    "about": "About Event",
+    "aboutText": "Your one-stop destination for the latest fashion trends. Quality apparel for Men, Women & Kids.",
+    "quickLinks": "Quick Links",
+    "customerService": "Customer Service",
+    "shippingInfo": "Shipping Info",
+    "returns": "Returns & Exchanges",
+    "sizeGuide": "Size Guide",
+    "faq": "FAQ",
+    "followUs": "Follow Us",
+    "newsletter": "Newsletter",
+    "newsletterText": "Subscribe for exclusive offers",
+    "rights": "All rights reserved"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "search": "Search",
+    "searchPlaceholder": "Search products..."
+  },
+  "productData": {
+    "men": [
+      {
+        "name": "Executive Wool Blazer",
+        "description": "Tailored fit made from Italian wool."
+      },
+      {
+        "name": "Royal Oxford Shirt",
+        "description": "100% long-staple cotton for a crisp look."
+      },
+      {
+        "name": "Urban Bomber Jacket",
+        "description": "Water-repellent fabric with matte finish."
+      },
+      {
+        "name": "Merino V-Neck Sweater",
+        "description": "Lightweight warmth for formal layering."
+      },
+      {
+        "name": "Classic Polo Shirt",
+        "description": "Breathable piqué cotton with ribbed cuffs."
+      },
+      {
+        "name": "Slim-Fit Chino Pants",
+        "description": "Versatile stretch cotton for all-day comfort."
+      },
+      {
+        "name": "Linen Summer Shirt",
+        "description": "Natural linen fabric for cool ventilation."
+      },
+      {
+        "name": "Double-Breasted Overcoat",
+        "description": "Heavy wool blend for extreme winter cold."
+      },
+      {
+        "name": "Graphic Street Tee",
+        "description": "Oversized fit with modern artistic print."
+      },
+      {
+        "name": "Satin Evening Tuxedo",
+        "description": "Sharp peak lapels for formal galas."
+      },
+      {
+        "name": "Utility Cargo Pants",
+        "description": "Multiple pockets with reinforced stitching."
+      },
+      {
+        "name": "Techno Windbreaker",
+        "description": "Lightweight tech fabric for outdoor activities."
+      },
+      {
+        "name": "Knitted Turtleneck",
+        "description": "Soft knit texture for a sophisticated look."
+      },
+      {
+        "name": "Denim Trucker Jacket",
+        "description": "Iconic rugged design with metal buttons."
+      },
+      {
+        "name": "Performance Gym Hoodie",
+        "description": "Moisture-wicking fabric for intense workouts."
+      }
+    ],
+    "women": [
+      {
+        "name": "Silk Gala Gown",
+        "description": "Flowing mulberry silk for ultimate elegance."
+      },
+      {
+        "name": "Empress Velvet Blazer",
+        "description": "Structured shoulders and rich texture."
+      },
+      {
+        "name": "Cashmere Cloud Cardigan",
+        "description": "Pure Mongolian cashmere for softness."
+      },
+      {
+        "name": "Boho Chiffon Maxi",
+        "description": "Lightweight with floral patterns."
+      },
+      {
+        "name": "Tailored Pencil Skirt",
+        "description": "High-waist fit for a professional silhouette."
+      },
+      {
+        "name": "Lace Evening Blouse",
+        "description": "Intricate lace detailing with silk lining."
+      },
+      {
+        "name": "Leather Moto Jacket",
+        "description": "Genuine leather with silver zip accents."
+      },
+      {
+        "name": "A-Line Summer Dress",
+        "description": "Breathable cotton with a flared hem."
+      },
+      {
+        "name": "Embroidered Kaftan",
+        "description": "Traditional motifs with a modern cut."
+      },
+      {
+        "name": "Satin Slip Dress",
+        "description": "Minimalist design for effortless elegance."
+      },
+      {
+        "name": "Pleated Midi Skirt",
+        "description": "Flowy satin pleats for a dynamic look."
+      },
+      {
+        "name": "Work-Wear Trench Coat",
+        "description": "Classic belted design for rainy days."
+      },
+      {
+        "name": "Off-Shoulder Party Top",
+        "description": "Trendy cut for social gatherings."
+      },
+      {
+        "name": "Cozy Oversized Knit",
+        "description": "Chunky knit for maximum winter comfort."
+      },
+      {
+        "name": "Denim Overall Dress",
+        "description": "Casual denim for a youthful vibe."
+      }
+    ],
+    "kids": [
+      {
+        "name": "Little Hero Denim Jacket",
+        "description": "Rugged denim with fleece lining."
+      },
+      {
+        "name": "Sparkle Tulle Dress",
+        "description": "Layers of tulle for celebrations."
+      },
+      {
+        "name": "Dino Cotton Pajamas",
+        "description": "Soft organic cotton with fun prints."
+      },
+      {
+        "name": "Active Explorer Tracksuit",
+        "description": "Flexible fabric for playtime."
+      },
+      {
+        "name": "Junior Polo Shirt",
+        "description": "Classic style for school and events."
+      },
+      {
+        "name": "Rainy Day Yellow Coat",
+        "description": "Waterproof with a cozy hood."
+      },
+      {
+        "name": "Superhero Graphic Tee",
+        "description": "Cotton jersey with vibrant prints."
+      },
+      {
+        "name": "Fleece Winter Onesie",
+        "description": "Full-body warmth for infants."
+      },
+      {
+        "name": "Skater Twill Chinos",
+        "description": "Durable fabric for active kids."
+      },
+      {
+        "name": "Butterfly Garden Skirt",
+        "description": "Colorful prints with elastic waist."
+      },
+      {
+        "name": "Cozy Sherpa Hoodie",
+        "description": "Fluffy lining for extra insulation."
+      },
+      {
+        "name": "Striped Sailor Set",
+        "description": "Nautical style for summer outings."
+      },
+      {
+        "name": "Rugged Combat Shorts",
+        "description": "Tough cotton for outdoor adventures."
+      },
+      {
+        "name": "Princess Velvet Cape",
+        "description": "Elegant layering for formal events."
+      },
+      {
+        "name": "Puffy Winter Vest",
+        "description": "Quilted design to keep the core warm."
+      }
+    ],
+    "shoes": [
+      {
+        "name": "Royal Italian Oxford",
+        "description": "Hand-burnished calfskin leather."
+      },
+      {
+        "name": "Velvet Night Stilettos",
+        "description": "High-fashion heels for comfort."
+      },
+      {
+        "name": "Cloud-Walk Sneakers",
+        "description": "Responsive foam technology."
+      },
+      {
+        "name": "Heritage Chelsea Boots",
+        "description": "Classic suede with elastic panels."
+      },
+      {
+        "name": "Gilded Evening Sandals",
+        "description": "Gold-toned with crystal accents."
+      },
+      {
+        "name": "Waterproof Hikers",
+        "description": "Superior ankle support for trails."
+      },
+      {
+        "name": "Minimalist Loafers",
+        "description": "Soft grain leather for business."
+      },
+      {
+        "name": "Neon Pulse Trainers",
+        "description": "Bold colors and chunky soles."
+      },
+      {
+        "name": "Monk Strap Elite",
+        "description": "Double buckle polished leather."
+      },
+      {
+        "name": "Crystal Satin Pumps",
+        "description": "Handcrafted bow on the toe."
+      },
+      {
+        "name": "Arctic Fur Boots",
+        "description": "Insulated for sub-zero temps."
+      },
+      {
+        "name": "Canvas Espadrilles",
+        "description": "Breathable jute sole for summer."
+      },
+      {
+        "name": "Combat Rebel Boots",
+        "description": "Heavy-duty with side-zip."
+      },
+      {
+        "name": "Gold-Thread Slippers",
+        "description": "Velvet with genuine gold thread."
+      },
+      {
+        "name": "Aero-Lite Walking Flats",
+        "description": "Orthopedic support for mobility."
+      }
+    ],
+    "jeans": [
+      {
+        "name": "Signature Slim Indigo",
+        "description": "Premium denim with stretch."
+      },
+      {
+        "name": "Obsidian Black Skinny",
+        "description": "Color-stay technology."
+      },
+      {
+        "name": "Vintage Straight Leg",
+        "description": "90s inspired rigid cotton."
+      },
+      {
+        "name": "Sky Blue Tapered",
+        "description": "High-waist feminine silhouette."
+      },
+      {
+        "name": "Distressed Streetwear",
+        "description": "Hand-abraded details."
+      },
+      {
+        "name": "Midnight Raw Selvage",
+        "description": "Develops unique wear patterns."
+      },
+      {
+        "name": "Grey Work Jeans",
+        "description": "Polished office-ready wash."
+      },
+      {
+        "name": "Athletic Performance",
+        "description": "Extra room for active days."
+      },
+      {
+        "name": "Retro Flare Bell-Bottoms",
+        "description": "Dramatic 70s inspired cut."
+      },
+      {
+        "name": "Cargo Utility Denim",
+        "description": "Side pockets and reinforced."
+      },
+      {
+        "name": "Acid Wash Rocker",
+        "description": "Bold 80s wash with metal trim."
+      },
+      {
+        "name": "Cloud-Soft Relaxed",
+        "description": "Cotton-lyocell breathable blend."
+      },
+      {
+        "name": "Shadow Grey Bootcut",
+        "description": "Subtle flare at the ankle."
+      },
+      {
+        "name": "Artisan Patchwork",
+        "description": "Multi-toned avant-garde patches."
+      },
+      {
+        "name": "Winter-Lined Summit",
+        "description": "Hidden fleece for extreme cold."
+      }
+    ],
+    "lingerie": [
+      {
+        "name": "Silk Majesty Set",
+        "description": "French lace and 100% silk."
+      },
+      {
+        "name": "Midnight Satin Robe",
+        "description": "Floor-length elegant drape."
+      },
+      {
+        "name": "Invisible Comfort",
+        "description": "Seamless edges for daily wear."
+      },
+      {
+        "name": "Emerald Velvet Bodysuit",
+        "description": "Stretch velvet with lace inserts."
+      },
+      {
+        "name": "Cotton Bralette",
+        "description": "Organic cotton, no underwire."
+      },
+      {
+        "name": "Floral Corset",
+        "description": "Structured fit with ribbon ties."
+      },
+      {
+        "name": "Sheer Baby-doll",
+        "description": "Lightweight chiffon and ruffles."
+      },
+      {
+        "name": "Bridal Ivory Gown",
+        "description": "Intricate white-on-white lace."
+      },
+      {
+        "name": "Onyx Mesh Teddy",
+        "description": "Modern architectural design."
+      },
+      {
+        "name": "Rose Quartz Slip",
+        "description": "Simple fluid bias cut."
+      },
+      {
+        "name": "Lace Kimono Luxury",
+        "description": "Bohemian sleeves, full lace."
+      },
+      {
+        "name": "Modal Sleep Set",
+        "description": "Stays cool all night long."
+      },
+      {
+        "name": "Gold Guipure Set",
+        "description": "Metallic highlights for evening."
+      },
+      {
+        "name": "Active Sport Bra",
+        "description": "High-impact moisture-wicking."
+      },
+      {
+        "name": "Vintage Polka Romper",
+        "description": "Soft rayon retro design."
+      }
+    ],
+    "accessories": [
+      {
+        "name": "Leather Briefcase",
+        "description": "Italian leather with tech slots."
+      },
+      {
+        "name": "Chronograph Watch",
+        "description": "Swiss movement, sapphire glass."
+      },
+      {
+        "name": "Aviator Shades",
+        "description": "Polarized UV protection."
+      },
+      {
+        "name": "Braided Leather Belt",
+        "description": "Hand-woven genuine leather."
+      },
+      {
+        "name": "Cashmere Scarf",
+        "description": "Pashmina-grade softness."
+      },
+      {
+        "name": "Diamond Cufflinks",
+        "description": "Sterling silver with lab diamond."
+      },
+      {
+        "name": "Canvas Backpack",
+        "description": "Water-resistant tech storage."
+      },
+      {
+        "name": "Evening Clutch",
+        "description": "Detachable chain, silk lining."
+      },
+      {
+        "name": "Silk Pocket Square",
+        "description": "Hand-rolled artistic print."
+      },
+      {
+        "name": "Tech Leather Gloves",
+        "description": "Sheepskin, smartphone compatible."
+      },
+      {
+        "name": "Enamel Earrings",
+        "description": "Minimalist gold plating."
+      },
+      {
+        "name": "Felt Fedora Hat",
+        "description": "Structured wool with ribbon."
+      },
+      {
+        "name": "Silver ID Bracelet",
+        "description": "Heavy-link chain for engraving."
+      },
+      {
+        "name": "Travel Passport Wallet",
+        "description": "RFID-blocking leather slots."
+      },
+      {
+        "name": "Velvet Bow Clip",
+        "description": "Romantic oversized bow design."
+      }
+    ]
+  }
 }

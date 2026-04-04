@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { useCart } from '@/context/CartContext';
 import { useLocale } from '@/context/LocaleContext';
 import { formatPrice } from '@/lib/utils';
+import { getCloudinaryUrl } from '@/lib/cloudinary';
 import styles from '@/styles/Checkout.module.css';
 
 export default function CheckoutPage() {
@@ -25,7 +26,7 @@ export default function CheckoutPage() {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const shipping = subtotal > 100 ? 0 : 10;
+  const shipping = subtotal > 1000 ? 0 : 50;
   const total = subtotal + shipping;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -197,11 +198,11 @@ export default function CheckoutPage() {
                   required
                 >
                   <option value="">{locale === 'en' ? 'Select Country' : 'اختر الدولة'}</option>
-                  <option value="US">United States</option>
-                  <option value="UK">United Kingdom</option>
+                  <option value="EG">Egypt</option>
                   <option value="SA">Saudi Arabia</option>
                   <option value="AE">United Arab Emirates</option>
-                  <option value="EG">Egypt</option>
+                  <option value="US">United States</option>
+                  <option value="UK">United Kingdom</option>
                 </select>
               </div>
             </section>
@@ -279,8 +280,8 @@ export default function CheckoutPage() {
                   <div key={`${item.product.id}-${item.selectedSize}-${item.selectedColor.hex}`} className={styles.summaryItem}>
                     <div className={styles.itemImage}>
                       <Image
-                        src={item.product.images[0]}
-                        alt={name}
+                        src={getCloudinaryUrl(item.product.images[0] || '', { width: 60, quality: 'auto', crop: 'fill' })}
+                        alt={name || ''}
                         fill
                         sizes="60px"
                         className={styles.image}

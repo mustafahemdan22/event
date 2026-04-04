@@ -25,7 +25,8 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
   const { locale, t } = useLocale();
 
   const name = getLocalizedText(product, 'name', locale);
-  const isWishlisted = isInWishlist(product.id);
+  const productId = (product.id || product._id) as string;
+  const isWishlisted = isInWishlist(productId);
   const hasDiscount = product.originalPrice && product.originalPrice > product.price;
   const discountPercent = hasDiscount
     ? getDiscountPercentage(product.originalPrice!, product.price)
@@ -37,7 +38,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    if (product.sizes.length > 0 && product.colors.length > 0) {
+    if (product.sizes?.length && product.colors?.length) {
       addItem(product, product.sizes[0], product.colors[0]);
     }
   };
@@ -57,7 +58,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link href={`/product/${product.id}`} className={styles.cardLink}>
+      <Link href={`/product/${productId}`} className={styles.cardLink}>
         {/* Image Container */}
         <div className={styles.imageContainer}>
           <motion.div
@@ -92,14 +93,14 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
             )}
             {product.newArrival && (
               <span className={styles.newBadge}>
-                {locale === 'en' ? 'New' : 'جديد'}
+                {t.product.new}
               </span>
             )}
             {product.stock <= 5 && product.stock > 0 && (
-              <span className={styles.lowStockBadge}>{locale === 'ar' ? 'كمية محدودة' : 'Low Stock'}</span>
+              <span className={styles.lowStockBadge}>{t.product.lowStock}</span>
             )}
             {product.stock === 0 && (
-              <span className={styles.outOfStockBadge}>{locale === 'ar' ? 'نفذت الكمية' : 'Out of Stock'}</span>
+              <span className={styles.outOfStockBadge}>{t.product.outOfStock}</span>
             )}
           </div>
 
@@ -201,7 +202,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
           </div>
 
           {/* Colors Preview */}
-          {product.colors.length > 0 && (
+          {product.colors && product.colors.length > 0 && (
             <div className={styles.colors}>
               {product.colors.slice(0, 4).map((color) => (
                 <span

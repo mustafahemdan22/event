@@ -8,8 +8,14 @@
  * @module
  */
 
-import type * as products from "../products.js";
+import type * as constants from "../constants.js";
+import type * as functions_categories from "../functions/categories.js";
+import type * as functions_orders from "../functions/orders.js";
+import type * as functions_products from "../functions/products.js";
+import type * as productData from "../productData.js";
 import type * as seed from "../seed.js";
+import type * as translations from "../translations.js";
+import type * as users from "../users.js";
 
 import type {
   ApiFromModules,
@@ -18,8 +24,14 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
-  products: typeof products;
+  constants: typeof constants;
+  "functions/categories": typeof functions_categories;
+  "functions/orders": typeof functions_orders;
+  "functions/products": typeof functions_products;
+  productData: typeof productData;
   seed: typeof seed;
+  translations: typeof translations;
+  users: typeof users;
 }>;
 
 /**

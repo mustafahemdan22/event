@@ -306,6 +306,20 @@
     margin-bottom: 1.5rem;
 }
 
+.selectionPrompt {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    background-color: var(--color-surface);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-lg);
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    text-align: center;
+}
+
 .addToCartButton {
     flex: 1;
     padding: 1rem 2rem;

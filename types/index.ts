@@ -1,29 +1,36 @@
 // Product Types
 export interface Product {
-  id: string;
+  _id?: string;
+  id?: string;
   name: string;
-  nameAr: string;
+  nameEn?: string;
+  nameAr?: string;
   description: string;
-  descriptionAr: string;
+  descriptionEn?: string;
+  descriptionAr?: string;
   price: number;
   originalPrice?: number;
   images: string[];
   category: string;
-  sizes: string[];
-  colors: ProductColor[];
-  inStock: boolean;
+  sizes?: string[];
+  colors?: ProductColor[];
+  inStock?: boolean;
   stock: number;
   featured?: boolean;
   newArrival?: boolean;
   rating: number;
   reviews: number;
+  subtitle?: string;
+  badge?: string;
 }
+
 
 export interface ProductColor {
   name: string;
-  nameAr: string;
+  nameAr?: string;
   hex: string;
 }
+
 
 // Category Types
 export interface Category {

@@ -4,12 +4,15 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { categories } from '@/data/categories';
-import { useLocale, getLocalizedText } from '@/context/LocaleContext';
+import { useQuery } from 'convex/react';
+import { api } from '@/convex/_generated/api';
+import { getCloudinaryUrl } from '@/lib/cloudinary';
+import { useLocale } from '@/context/LocaleContext';
 import styles from '@/styles/Categories.module.css';
 
 export default function Categories() {
   const { t, locale } = useLocale();
+  const convexCategories = useQuery(api.functions.categories.listCategories);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -25,6 +28,12 @@ export default function Categories() {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0 },
   };
+
+  if (convexCategories === undefined) {
+    return null; // Loading state
+  }
+  
+  const categories = convexCategories || [];
 
   return (
     <section className={styles.section}>
@@ -47,17 +56,17 @@ export default function Categories() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {categories.map((category, index) => (
+          {categories.map((category: any, index: number) => (
             <motion.div
-              key={category.id}
+              key={category._id}
               variants={itemVariants}
               className={`${styles.card} ${index === 0 || index === 3 ? styles.cardLarge : ''}`}
             >
               <Link href={`/category/${category.slug}`} className={styles.cardLink}>
                 <div className={styles.imageWrapper}>
                   <Image
-                    src={category.image}
-                    alt={getLocalizedText(category, 'name', locale)}
+                    src={getCloudinaryUrl(category.heroImagePublicId, { width: 800, quality: 'auto', crop: 'fill' })}
+                    alt={locale === 'ar' ? category.name : category.nameEn}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className={styles.image}
@@ -66,7 +75,7 @@ export default function Categories() {
                 </div>
                 <div className={styles.content}>
                   <h3 className={styles.categoryName}>
-                    {getLocalizedText(category, 'name', locale)}
+                    {locale === 'ar' ? category.name : category.nameEn}
                   </h3>
                   <p className={styles.productCount}>
                     {category.productCount} {locale === 'en' ? 'Products' : 'منتج'}

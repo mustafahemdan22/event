@@ -2,11 +2,11 @@
 
 import React, { use } from 'react';
 import { motion } from 'framer-motion';
-import { getCategoryBySlug } from '@/data/categories';
 import { useQuery } from 'convex/react';
 import { api } from '@/convex/_generated/api';
 import ProductCard from '@/components/product/ProductCard';
 import { useLocale, getLocalizedText } from '@/context/LocaleContext';
+import { getCloudinaryUrl } from '@/lib/cloudinary';
 import styles from '@/styles/Category.module.css';
 import Link from 'next/link';
 
@@ -16,13 +16,13 @@ interface CategoryPageProps {
 
 export default function CategoryPage({ params }: CategoryPageProps) {
   const resolvedParams = use(params);
-  const category = getCategoryBySlug(resolvedParams.slug);
-  const convexProducts = useQuery(api.products.getProductsByCategory, 
-    { category: resolvedParams.slug }
-  );
+  
+  // Fetch Category and Products dynamically from Convex
+  const category = useQuery(api.functions.categories.getCategoryBySlug, { slug: resolvedParams.slug });
+  const convexProducts = useQuery(api.functions.products.getProductsByCategory, { category: resolvedParams.slug });
   const { t, locale } = useLocale();
 
-  if (convexProducts === undefined) {
+  if (category === undefined || convexProducts === undefined) {
     return (
       <div className={styles.loading}>
         <div className={styles.spinner}></div>
@@ -30,7 +30,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
     );
   }
 
-  if (!category) {
+  if (category === null) {
     return (
       <div className={styles.notFound}>
         <h1>{locale === 'en' ? 'Category not found' : 'الفئة غير موجودة'}</h1>
@@ -43,15 +43,16 @@ export default function CategoryPage({ params }: CategoryPageProps) {
 
   const products = convexProducts || [];
 
-  const name = getLocalizedText(category, 'name', locale);
-  const description = getLocalizedText(category, 'description', locale);
+  const name = locale === 'ar' ? category.name : category.nameEn;
+  const description = locale === 'ar' ? category.description : category.descriptionEn;
+  const headerImageUrl = category.heroImagePublicId ? getCloudinaryUrl(category.heroImagePublicId, { width: 1920, quality: 'auto' }) : '';
 
   return (
     <div className={styles.page}>
       {/* Hero Section */}
       <div 
         className={styles.hero}
-        style={{ backgroundImage: `url(${category.image})` }}
+        style={headerImageUrl ? { backgroundImage: `url(${headerImageUrl})` } : { backgroundColor: '#333' }}
       >
         <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
@@ -85,7 +86,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
           {products.length > 0 ? (
             <div className={styles.grid}>
               {products.map((product, index) => (
-                <ProductCard key={product.id} product={product} index={index} />
+                <ProductCard key={product._id} product={product as any} index={index} />
               ))}
             </div>
           ) : (

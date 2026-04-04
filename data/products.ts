@@ -28,8 +28,7 @@ export const products: Product[] = [
         price: 49.99,
         originalPrice: 69.99,
         images: [
-            'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=800',
-            'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/men/1.png',
         ],
         category: 'men',
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
@@ -49,7 +48,7 @@ export const products: Product[] = [
         descriptionAr: 'قميص بولو قطني متنفس بياقة مضلعة. مثالي للمناسبات العادية وشبه الرسمية.',
         price: 39.99,
         images: [
-            'https://images.unsplash.com/photo-1625910513413-5fc5e0389748?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/men/2.png',
         ],
         category: 'men',
         sizes: ['S', 'M', 'L', 'XL'],
@@ -70,7 +69,7 @@ export const products: Product[] = [
         price: 149.99,
         originalPrice: 199.99,
         images: [
-            'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/men/3.png',
         ],
         category: 'men',
         sizes: ['S', 'M', 'L', 'XL'],
@@ -90,7 +89,7 @@ export const products: Product[] = [
         descriptionAr: 'تي شيرت قطني عضوي 100% بقصة مريحة. مثالي للارتداء اليومي.',
         price: 24.99,
         images: [
-            'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/men/4.jpg',
         ],
         category: 'men',
         sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
@@ -111,7 +110,7 @@ export const products: Product[] = [
         price: 299.99,
         originalPrice: 399.99,
         images: [
-            'https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/men/5.jpg',
         ],
         category: 'men',
         sizes: ['S', 'M', 'L', 'XL'],
@@ -131,7 +130,7 @@ export const products: Product[] = [
         descriptionAr: 'جاكيت جلد صناعي فاخر بسحابات معدنية ومظهر عصري أنيق.',
         price: 189.99,
         images: [
-            'https://res.cloudinary.com/gravity-store/image/upload/v1/products/men-leather-jacket',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/men/6.jpg',
         ],
         category: 'men',
         sizes: ['M', 'L', 'XL'],
@@ -153,7 +152,7 @@ export const products: Product[] = [
         price: 89.99,
         originalPrice: 119.99,
         images: [
-            'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/women/1.png',
         ],
         category: 'women',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
@@ -173,7 +172,7 @@ export const products: Product[] = [
         descriptionAr: 'بلوزة حريرية فاخرة بتفاصيل دقيقة. قطعة متعددة الاستخدامات للعمل أو عطلة نهاية الأسبوع.',
         price: 79.99,
         images: [
-            'https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/women/2.jpg',
         ],
         category: 'women',
         sizes: ['XS', 'S', 'M', 'L'],
@@ -193,7 +192,7 @@ export const products: Product[] = [
         descriptionAr: 'بليزر مفصل راقي بقصة عصرية. مثالي للمكتب أو المناسبات شبه الرسمية.',
         price: 129.99,
         images: [
-            'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/women/3.jpg',
         ],
         category: 'women',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
@@ -214,7 +213,7 @@ export const products: Product[] = [
         price: 159.99,
         originalPrice: 199.99,
         images: [
-            'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/women/4.jpg',
         ],
         category: 'women',
         sizes: ['XS', 'S', 'M', 'L'],
@@ -234,7 +233,7 @@ export const products: Product[] = [
         descriptionAr: 'تنورة ميدي مطوية أنيقة بقصة انسيابية. تتناسق بشكل جميل مع أي قطعة علوية.',
         price: 69.99,
         images: [
-            'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/women/1.png',
         ],
         category: 'women',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
@@ -254,7 +253,7 @@ export const products: Product[] = [
         descriptionAr: 'جمبسوت مشجر خفيف برباط خصر. أنيق وبسيط للأيام المشمسة.',
         price: 74.99,
         images: [
-            'https://res.cloudinary.com/gravity-store/image/upload/v1/products/women-jumpsuit',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/women/2.jpg',
         ],
         category: 'women',
         sizes: ['S', 'M', 'L'],
@@ -275,7 +274,7 @@ export const products: Product[] = [
         descriptionAr: 'تي شيرت مطبوع ممتع وملون للأطفال. مصنوع من قطن ناعم ومتين.',
         price: 19.99,
         images: [
-            'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/kids/1.png',
         ],
         category: 'kids',
         sizes: ['2-3Y', '4-5Y', '6-7Y', '8-9Y', '10-11Y'],
@@ -295,7 +294,7 @@ export const products: Product[] = [
         descriptionAr: 'سالوبيت جينز كلاسيكي بأحزمة قابلة للتعديل. مريح وأنيق للعب اليومي.',
         price: 34.99,
         images: [
-            'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/kids/2.png',
         ],
         category: 'kids',
         sizes: ['2-3Y', '4-5Y', '6-7Y', '8-9Y'],
@@ -316,7 +315,7 @@ export const products: Product[] = [
         price: 29.99,
         originalPrice: 39.99,
         images: [
-            'https://images.unsplash.com/photo-1445796886651-d31a2c15f3ce?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/kids/3.png',
         ],
         category: 'kids',
         sizes: ['2-3Y', '4-5Y', '6-7Y', '8-9Y', '10-11Y'],
@@ -336,7 +335,7 @@ export const products: Product[] = [
         descriptionAr: 'فستان حفلات تول جميل مثالي للمناسبات الخاصة. يتميز بتفاصيل لامعة.',
         price: 49.99,
         images: [
-            'https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/kids/1.png',
         ],
         category: 'kids',
         sizes: ['2-3Y', '4-5Y', '6-7Y', '8-9Y'],
@@ -356,7 +355,7 @@ export const products: Product[] = [
         descriptionAr: 'حذاء رياضي متين ومريح مصمم للأطفال النشطين. أحزمة فيلكرو سهلة.',
         price: 44.99,
         images: [
-            'https://res.cloudinary.com/gravity-store/image/upload/v1/products/kids-sneakers',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/kids/2.png',
         ],
         category: 'kids',
         sizes: ['25', '26', '27', '28', '29', '30'],
@@ -378,7 +377,7 @@ export const products: Product[] = [
         price: 119.99,
         originalPrice: 149.99,
         images: [
-            'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/shoes/1.png',
         ],
         category: 'shoes',
         sizes: ['38', '39', '40', '41', '42', '43', '44', '45'],
@@ -398,7 +397,7 @@ export const products: Product[] = [
         descriptionAr: 'حذاء جري عالي الأداء بتقنية توسيد متقدمة.',
         price: 159.99,
         images: [
-            'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/shoes/2.png',
         ],
         category: 'shoes',
         sizes: ['38', '39', '40', '41', '42', '43', '44'],
@@ -418,7 +417,7 @@ export const products: Product[] = [
         descriptionAr: 'كعب عالي راقي للمناسبات الخاصة. يتميز بنعل داخلي مبطن مريح.',
         price: 99.99,
         images: [
-            'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/shoes/3.png',
         ],
         category: 'shoes',
         sizes: ['36', '37', '38', '39', '40', '41'],
@@ -439,7 +438,7 @@ export const products: Product[] = [
         price: 179.99,
         originalPrice: 219.99,
         images: [
-            'https://images.unsplash.com/photo-1638953952787-6f87b4e64a77?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/shoes/1.png',
         ],
         category: 'shoes',
         sizes: ['39', '40', '41', '42', '43', '44', '45'],
@@ -459,7 +458,7 @@ export const products: Product[] = [
         descriptionAr: 'لوفر من الشمواه الناعم بلمسة جمالية بسيطة. مثالية للمناسبات الرسمية وغير الرسمية.',
         price: 139.99,
         images: [
-            'https://res.cloudinary.com/gravity-store/image/upload/v1/products/shoes-loafers',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/shoes/2.png',
         ],
         category: 'shoes',
         sizes: ['40', '41', '42', '43', '44'],
@@ -480,7 +479,7 @@ export const products: Product[] = [
         descriptionAr: 'براليت دانتيل رقيق مع سروال مطابق. مريح وأنيق.',
         price: 49.99,
         images: [
-            'https://images.unsplash.com/photo-1617331721458-bd3bd3f9c7f8?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/lingerie/1.png',
         ],
         category: 'lingerie',
         sizes: ['XS', 'S', 'M', 'L'],
@@ -501,7 +500,7 @@ export const products: Product[] = [
         price: 89.99,
         originalPrice: 119.99,
         images: [
-            'https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/lingerie/2.png',
         ],
         category: 'lingerie',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
@@ -521,7 +520,7 @@ export const products: Product[] = [
         descriptionAr: 'طقم من 3 سراويل بدون درزات للارتداء الخفي. قماش ميكروفايبر فائق الراحة.',
         price: 34.99,
         images: [
-            'https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/lingerie/1.png',
         ],
         category: 'lingerie',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
@@ -544,7 +543,7 @@ export const products: Product[] = [
         price: 79.99,
         originalPrice: 99.99,
         images: [
-            'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/jeans/1.jpg',
         ],
         category: 'jeans',
         sizes: ['28', '30', '32', '34', '36', '38'],
@@ -564,7 +563,7 @@ export const products: Product[] = [
         descriptionAr: 'جينز مام عصري بخصر عالي وقصة مريحة. غسيل مستوحى من الطراز القديم.',
         price: 69.99,
         images: [
-            'https://images.unsplash.com/photo-1584370848010-d7fe6bc767ec?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/jeans/2.jpg',
         ],
         category: 'jeans',
         sizes: ['24', '26', '28', '30', '32'],
@@ -584,7 +583,7 @@ export const products: Product[] = [
         descriptionAr: 'جينز مريح بقصة واسعة مثالي للارتداء اليومي. يتميز بتصميم ساق مستقيمة.',
         price: 64.99,
         images: [
-            'https://images.unsplash.com/photo-1582552938357-32b906df40cb?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/jeans/1.jpg',
         ],
         category: 'jeans',
         sizes: ['28', '30', '32', '34', '36', '38', '40'],
@@ -605,7 +604,7 @@ export const products: Product[] = [
         price: 59.99,
         originalPrice: 79.99,
         images: [
-            'https://images.unsplash.com/photo-1542272604-787c3835535d?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/jeans/2.jpg',
         ],
         category: 'jeans',
         sizes: ['24', '26', '28', '30', '32', '34'],
@@ -625,7 +624,7 @@ export const products: Product[] = [
         descriptionAr: 'جاكيت جينز كلاسيكي بتفاصيل ممزقة لمظهر جريء. رائع كقطعة إضافية.',
         price: 84.99,
         images: [
-            'https://res.cloudinary.com/gravity-store/image/upload/v1/products/jeans-jacket',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/jeans/1.jpg',
         ],
         category: 'jeans',
         sizes: ['S', 'M', 'L', 'XL'],
@@ -646,7 +645,7 @@ export const products: Product[] = [
         descriptionAr: 'حقيبة جلد كروس أنيقة بحزام قابل للتعديل. أقسام متعددة للتنظيم.',
         price: 89.99,
         images: [
-            'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/accessories/1.jpg',
         ],
         category: 'accessories',
         sizes: ['One Size'],
@@ -667,7 +666,7 @@ export const products: Product[] = [
         price: 149.99,
         originalPrice: 199.99,
         images: [
-            'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/accessories/2.jpg',
         ],
         category: 'accessories',
         sizes: ['One Size'],
@@ -687,7 +686,7 @@ export const products: Product[] = [
         descriptionAr: 'وشاح حريري فاخر بطباعة جميلة. يمكن ارتداؤه بطرق متعددة.',
         price: 59.99,
         images: [
-            'https://images.unsplash.com/photo-1601924638867-3a6de6b7a500?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/accessories/3.jpg',
         ],
         category: 'accessories',
         sizes: ['One Size'],
@@ -707,7 +706,7 @@ export const products: Product[] = [
         descriptionAr: 'حزام جلد فاخر بإبزيم كلاسيكي. إكسسوار خالد لأي إطلالة.',
         price: 49.99,
         images: [
-            'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/accessories/1.jpg',
         ],
         category: 'accessories',
         sizes: ['S', 'M', 'L', 'XL'],
@@ -728,7 +727,7 @@ export const products: Product[] = [
         price: 129.99,
         originalPrice: 159.99,
         images: [
-            'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/accessories/2.jpg',
         ],
         category: 'accessories',
         sizes: ['One Size'],
@@ -748,7 +747,7 @@ export const products: Product[] = [
         descriptionAr: 'قلادة فضية بسيطة مع قلادة رقيقة. أنيقة وبسيطة.',
         price: 99.99,
         images: [
-            'https://res.cloudinary.com/gravity-store/image/upload/v1/products/acc-necklace',
+            'https://res.cloudinary.com/dfq1xxerr/image/upload/v1/event/categories/accessories/3.jpg',
         ],
         category: 'accessories',
         sizes: ['One Size'],

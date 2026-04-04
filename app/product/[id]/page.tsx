@@ -20,15 +20,15 @@ interface ProductPageProps {
 
 export default function ProductPage({ params }: ProductPageProps) {
   const resolvedParams = React.use(params);
-  const product = useQuery(api.products.getProductByManualId, { id: resolvedParams.id });
-  const categoryProducts = useQuery(api.products.getProductsByCategory, 
+  const product = useQuery(api.functions.products.getProductByManualId, { id: resolvedParams.id });
+  const categoryProducts = useQuery(api.functions.products.getProductsByCategory, 
     { category: product?.category || '' }
   );
   
   const relatedProducts = React.useMemo(() => {
     if (!product || !categoryProducts) return [];
     return categoryProducts
-      .filter((p) => p.id !== product.id)
+      .filter((p) => p._id !== product._id)
       .slice(0, 4);
   }, [product, categoryProducts]);
   
@@ -42,12 +42,13 @@ export default function ProductPage({ params }: ProductPageProps) {
   const [quantity, setQuantity] = useState(1);
   const [addedToCart, setAddedToCart] = useState(false);
 
-  // Set default color when product loads
-  React.useEffect(() => {
-    if (product && !selectedColor) {
-      setSelectedColor(product.colors[0]);
-    }
-  }, [product, selectedColor]);
+  // Define fallback options in case product has no sizes/colors in DB
+  const availableSizes = product?.sizes?.length ? product.sizes : ['S', 'M', 'L', 'XL'];
+  const availableColors = product?.colors?.length ? product.colors : [
+    { name: 'Black', nameAr: 'أسود', hex: '#000000' },
+    { name: 'White', nameAr: 'أبيض', hex: '#FFFFFF' },
+    { name: 'Navy', nameAr: 'كحلي', hex: '#000080' }
+  ];
 
   if (product === undefined) {
     return (
@@ -70,7 +71,7 @@ export default function ProductPage({ params }: ProductPageProps) {
 
   const name = getLocalizedText(product, 'name', locale);
   const description = getLocalizedText(product, 'description', locale);
-  const isWishlisted = isInWishlist(product.id);
+  const isWishlisted = isInWishlist(product._id);
   const hasDiscount = product.originalPrice && product.originalPrice > product.price;
   const discountPercent = hasDiscount
     ? getDiscountPercentage(product.originalPrice!, product.price)
@@ -193,7 +194,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                   {t.product.size}: <span className={styles.optionValue}>{selectedSize || t.product.selectSize}</span>
                 </label>
                 <div className={styles.sizes}>
-                  {product.sizes.map((size) => (
+                  {availableSizes.map((size) => (
                     <button
                       key={size}
                       className={`${styles.sizeButton} ${selectedSize === size ? styles.activeSize : ''}`}
@@ -213,7 +214,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                   </span>
                 </label>
                 <div className={styles.colors}>
-                  {product.colors.map((color) => (
+                  {availableColors.map((color) => (
                     <button
                       key={color.hex}
                       className={`${styles.colorButton} ${selectedColor?.hex === color.hex ? styles.activeColor : ''}`}
@@ -247,18 +248,37 @@ export default function ProductPage({ params }: ProductPageProps) {
 
               {/* Actions */}
               <div className={styles.actions}>
-                <motion.button
-                  className={styles.addToCartButton}
-                  onClick={handleAddToCart}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  disabled={!selectedSize || !selectedColor}
-                >
-                  {addedToCart ? '✓ ' : ''}
-                  {addedToCart 
-                    ? (locale === 'en' ? 'Added!' : 'تمت الإضافة!') 
-                    : t.product.addToCart}
-                </motion.button>
+                <AnimatePresence mode="wait">
+                  {selectedSize && selectedColor ? (
+                    <motion.button
+                      key="add-to-cart-btn"
+                      className={styles.addToCartButton}
+                      onClick={handleAddToCart}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {addedToCart ? '✓ ' : ''}
+                      {addedToCart 
+                        ? (locale === 'en' ? 'Added!' : 'تمت الإضافة!') 
+                        : t.product.addToCart}
+                    </motion.button>
+                  ) : (
+                    <motion.div
+                      key="selection-prompt"
+                      className={styles.selectionPrompt}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {locale === 'en' ? 'Select Size and Color to Add' : 'اختر المقاس واللون للإضافة'}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
                 
                 <motion.button
                   className={`${styles.wishlistButton} ${isWishlisted ? styles.wishlisted : ''}`}
@@ -293,7 +313,7 @@ export default function ProductPage({ params }: ProductPageProps) {
             <h2 className={styles.relatedTitle}>{t.product.relatedProducts}</h2>
             <div className={styles.relatedGrid}>
               {relatedProducts.map((product, index) => (
-                <ProductCard key={product.id} product={product} index={index} />
+                <ProductCard key={product._id} product={product as any} index={index} />
               ))}
             </div>
           </section>

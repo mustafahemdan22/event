@@ -1,48 +1,37 @@
-/**
- * Cloudinary utility to generate optimized image URLs.
- * Default cloud name is 'gravity-store' unless overridden by environment variable.
- */
-
-const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'dfq1xxerr';
+const CLOUDINARY_CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'dfq1xxerr';
 
 interface CloudinaryOptions {
   width?: number;
   height?: number;
   quality?: string | number;
-  format?: string;
   crop?: string;
+  format?: string;
 }
 
 /**
- * Transforms a Cloudinary URL or a public ID into an optimized URL.
- * If the input is not a Cloudinary URL, it returns it as is.
+ * Generates an optimized Cloudinary URL from a public ID or raw URL.
+ * If a full URL is passed, it is returned as-is.
+ * If a public ID is passed, a transformation URL is built.
  */
-export function getCloudinaryUrl(src: string, options: CloudinaryOptions = {}) {
-  if (!src.includes('res.cloudinary.com')) return src;
+export function getCloudinaryUrl(publicIdOrUrl: string, options: CloudinaryOptions = {}): string {
+  if (!publicIdOrUrl) return '';
 
-  const {
-    width,
-    height,
-    quality = 'auto',
-    format = 'auto',
-    crop = 'fill',
-  } = options;
+  // If it's already a full URL, return as-is
+  if (publicIdOrUrl.startsWith('http')) {
+    return publicIdOrUrl;
+  }
 
-  // Extract the part after /upload/
-  const parts = src.split('/upload/');
-  if (parts.length < 2) return src;
+  const { width = 800, quality = 'auto', crop, format = 'auto' } = options;
 
-  const baseUrl = parts[0] + '/upload/';
-  const publicId = parts[1];
+  const transforms: string[] = [`f_${format}`, `q_${quality}`];
+  if (width) transforms.push(`w_${width}`);
+  if (options.height) transforms.push(`h_${options.height}`);
+  if (crop) transforms.push(`c_${crop}`);
 
-  const transformations = [];
-  if (width) transformations.push(`w_${width}`);
-  if (height) transformations.push(`h_${height}`);
-  if (quality) transformations.push(`q_${quality}`);
-  if (format) transformations.push(`f_${format}`);
-  if (crop && (width || height)) transformations.push(`c_${crop}`);
+  const transformStr = transforms.join(',');
+  const cleanId = publicIdOrUrl.startsWith('/') ? publicIdOrUrl.slice(1) : publicIdOrUrl;
 
-  const transformationString = transformations.length > 0 ? transformations.join(',') + '/' : '';
-
-  return `${baseUrl}${transformationString}${publicId}`;
+  return `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/${transformStr}/${cleanId}`;
 }
+
+export default getCloudinaryUrl;

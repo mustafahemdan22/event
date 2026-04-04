@@ -17,8 +17,10 @@ import { ConvexClientProvider } from "@/components/ConvexClientProvider";
 
 export default function RootLayout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -37,6 +39,7 @@ export default function RootLayout({
                     <main style={{ flex: 1 }}>
                       {children}
                     </main>
+                    {modal}
                     <Footer />
                   </div>
                 </WishlistProvider>

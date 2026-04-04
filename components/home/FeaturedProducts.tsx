@@ -11,7 +11,7 @@ import styles from '@/styles/FeaturedProducts.module.css';
 
 export default function FeaturedProducts() {
   const { t, locale } = useLocale();
-  const featuredProducts = useQuery(api.products.getFeaturedProducts);
+  const featuredProducts = useQuery(api.functions.products.getFeaturedProducts);
 
   if (featuredProducts === undefined) {
     return (
@@ -50,7 +50,7 @@ export default function FeaturedProducts() {
 
         <div className={styles.grid}>
           {featuredProducts.map((product, index) => (
-            <ProductCard key={product.id} product={product} index={index} />
+            <ProductCard key={product._id} product={product as any} index={index} />
           ))}
         </div>
       </div>

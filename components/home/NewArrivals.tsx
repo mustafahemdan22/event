@@ -11,7 +11,7 @@ import styles from '@/styles/NewArrivals.module.css'; // Keeping original styles
 
 export default function NewArrivals() {
   const { t } = useLocale();
-  const newArrivals = useQuery(api.products.getNewArrivals);
+  const newArrivals = useQuery(api.functions.products.getNewArrivals);
 
   if (newArrivals === undefined) {
     return (
@@ -50,7 +50,7 @@ export default function NewArrivals() {
 
         <div className={styles.grid}>
           {newArrivals.map((product, index) => (
-            <ProductCard key={product.id} product={product} index={index} />
+            <ProductCard key={product._id} product={product as any} index={index} />
           ))}
         </div>
       </div>

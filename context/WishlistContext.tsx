@@ -52,8 +52,8 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
   };
 
   const toggleItem = (product: Product) => {
-    if (isInWishlist(product.id)) {
-      removeItem(product.id);
+    if (isInWishlist(product.id || '')) {
+      removeItem(product.id || '');
     } else {
       addItem(product);
     }

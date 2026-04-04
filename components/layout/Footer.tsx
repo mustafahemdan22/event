@@ -19,11 +19,11 @@ export default function Footer() {
   ];
 
   const categoryLinks = [
-    { href: '/category/men', label: t.categories.men },
-    { href: '/category/women', label: t.categories.women },
-    { href: '/category/kids', label: t.categories.kids },
-    { href: '/category/shoes', label: t.categories.shoes },
-    { href: '/category/accessories', label: t.categories.accessories },
+    { href: '/category/men', label: t.categories.men.name },
+    { href: '/category/women', label: t.categories.women.name },
+    { href: '/category/kids', label: t.categories.kids.name },
+    { href: '/category/shoes', label: t.categories.shoes.name },
+    { href: '/category/accessories', label: t.categories.accessories.name },
   ];
 
   const customerService = [
@@ -119,7 +119,7 @@ export default function Footer() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className={styles.footerColumn}
             >
-              <h3 className={styles.columnTitle}>{t.categories.all}</h3>
+              <h3 className={styles.columnTitle}>{t.categories.all.name}</h3>
               <ul className={styles.linkList}>
                 {categoryLinks.map((link) => (
                   <li key={link.href}>

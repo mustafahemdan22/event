@@ -84,7 +84,7 @@ export function useLocale() {
 
 // Helper function to get localized text from product/category/blog objects
 export function getLocalizedText(
-  obj: { name?: string; nameAr?: string; title?: string; titleAr?: string; description?: string; descriptionAr?: string },
+  obj: { name?: string; nameEn?: string; nameAr?: string; title?: string; titleEn?: string; titleAr?: string; description?: string; descriptionEn?: string; descriptionAr?: string },
   field: 'name' | 'title' | 'description',
   locale: Locale
 ): string {
@@ -92,7 +92,13 @@ export function getLocalizedText(
     if (field === 'name' && obj.nameAr) return obj.nameAr;
     if (field === 'title' && obj.titleAr) return obj.titleAr;
     if (field === 'description' && obj.descriptionAr) return obj.descriptionAr;
+  } else {
+    // English
+    if (field === 'name' && obj.nameEn) return obj.nameEn;
+    if (field === 'title' && obj.titleEn) return obj.titleEn;
+    if (field === 'description' && obj.descriptionEn) return obj.descriptionEn;
   }
+  // Fallback to base field if specific locale field is missing
   if (field === 'name' && obj.name) return obj.name;
   if (field === 'title' && obj.title) return obj.title;
   if (field === 'description' && obj.description) return obj.description;

@@ -13,10 +13,10 @@ type SortOption = 'newest' | 'price-asc' | 'price-desc' | 'name';
 
 export default function ShopPage() {
   const { t, locale } = useLocale();
-  const convexProducts = useQuery(api.products.getProducts);
+  const convexProducts = useQuery(api.functions.products.getProducts);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [sortBy, setSortBy] = useState<SortOption>('newest');
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 500]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 2500]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const productsPerPage = 12;
@@ -68,7 +68,7 @@ export default function ShopPage() {
 
   const handleClearFilters = () => {
     setSelectedCategory('all');
-    setPriceRange([0, 500]);
+    setPriceRange([0, 2500]);
     setSortBy('newest');
     setCurrentPage(1);
   };
@@ -145,7 +145,7 @@ export default function ShopPage() {
                   onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
                   className={styles.priceInput}
                   min={priceRange[0]}
-                  max={1000}
+                  max={5000}
                 />
               </div>
             </div>
@@ -175,7 +175,7 @@ export default function ShopPage() {
             {paginatedProducts.length > 0 ? (
               <div className={styles.grid}>
                 {paginatedProducts.map((product, index) => (
-                  <ProductCard key={product.id} product={product} index={index} />
+                  <ProductCard key={product._id} product={product as any} index={index} />
                 ))}
               </div>
             ) : (
