@@ -16,7 +16,7 @@ interface CategoryPageProps {
 
 export default function CategoryPage({ params }: CategoryPageProps) {
   const resolvedParams = use(params);
-  
+
   // Fetch Category and Products dynamically from Convex
   const category = useQuery(api.functions.categories.getCategoryBySlug, { slug: resolvedParams.slug });
   const convexProducts = useQuery(api.functions.products.getProductsByCategory, { category: resolvedParams.slug });
@@ -50,7 +50,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
   return (
     <div className={styles.page}>
       {/* Hero Section */}
-      <div 
+      <div
         className={styles.hero}
         style={headerImageUrl ? { backgroundImage: `url(${headerImageUrl})` } : { backgroundColor: '#333' }}
       >
